@@ -1,70 +1,103 @@
 // SIP Calculator
 function calculateSIP() {
-    let sipAmount = parseFloat(document.getElementById("sipAmount").value);
-    let rateOfReturn = parseFloat(document.getElementById("sipRateOfReturn").value) / 100 / 12;
-    let duration = parseInt(document.getElementById("sipDuration").value) * 12;
-    let futureValue = sipAmount * (((Math.pow(1 + rateOfReturn, duration) - 1) / rateOfReturn) * (1 + rateOfReturn));
-    document.getElementById("sipResult").innerText = `Future Value: ₹${futureValue.toFixed(2)}`;
+    const sipAmount = document.getElementById("sipAmount").value;
+    const rateOfReturn = document.getElementById("sipRateOfReturn").value;
+    const duration = document.getElementById("sipDuration").value;
+  
+    if (sipAmount && rateOfReturn && duration) {
+      const totalAmount = sipAmount * (((Math.pow(1 + rateOfReturn / 100, duration) - 1) / (rateOfReturn / 100)) * (1 + rateOfReturn / 100));
+      document.getElementById("sipResult").innerText = `Total Amount: ₹${totalAmount.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // Inflation Calculator
   function calculateInflation() {
-    let amount = parseFloat(document.getElementById("inflationAmount").value);
-    let rate = parseFloat(document.getElementById("inflationRate").value) / 100;
-    let duration = parseInt(document.getElementById("inflationDuration").value);
-    let futureValue = amount * Math.pow(1 + rate, duration);
-    document.getElementById("inflationResult").innerText = `Future Value (Inflated): ₹${futureValue.toFixed(2)}`;
+    const inflationAmount = document.getElementById("inflationAmount").value;
+    const inflationRate = document.getElementById("inflationRate").value;
+    const inflationDuration = document.getElementById("inflationDuration").value;
+  
+    if (inflationAmount && inflationRate && inflationDuration) {
+      const futureValue = inflationAmount * Math.pow(1 + inflationRate / 100, inflationDuration);
+      document.getElementById("inflationResult").innerText = `Future Value: ₹${futureValue.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // Compound Interest Calculator
   function calculateCompoundInterest() {
-    let principal = parseFloat(document.getElementById("principal").value);
-    let rate = parseFloat(document.getElementById("compoundRate").value) / 100;
-    let time = parseInt(document.getElementById("compoundDuration").value);
-    let amount = principal * Math.pow(1 + rate, time);
-    let interest = amount - principal;
-    document.getElementById("compoundResult").innerText = `Compound Interest: ₹${interest.toFixed(2)}`;
+    const principal = document.getElementById("principal").value;
+    const rate = document.getElementById("compoundRate").value;
+    const duration = document.getElementById("compoundDuration").value;
+  
+    if (principal && rate && duration) {
+      const amount = principal * Math.pow(1 + rate / 100, duration);
+      document.getElementById("compoundResult").innerText = `Compound Interest: ₹${(amount - principal).toFixed(2)} and Total Amount: ₹${amount.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // CAGR Calculator
   function calculateCAGR() {
-    let initialValue = parseFloat(document.getElementById("initialValue").value);
-    let finalValue = parseFloat(document.getElementById("finalValue").value);
-    let years = parseInt(document.getElementById("years").value);
-    let cagr = Math.pow(finalValue / initialValue, 1 / years) - 1;
-    document.getElementById("cagrResult").innerText = `CAGR: ${(cagr * 100).toFixed(2)}%`;
+    const initialValue = document.getElementById("initialValue").value;
+    const finalValue = document.getElementById("finalValue").value;
+    const years = document.getElementById("years").value;
+  
+    if (initialValue && finalValue && years) {
+      const cagr = Math.pow(finalValue / initialValue, 1 / years) - 1;
+      document.getElementById("cagrResult").innerText = `CAGR: ${(cagr * 100).toFixed(2)}%`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // Lump Sum Calculator
   function calculateLumpSum() {
-    let amount = parseFloat(document.getElementById("lumpSumAmount").value);
-    let rate = parseFloat(document.getElementById("lumpSumRate").value) / 100;
-    let years = parseInt(document.getElementById("lumpSumYears").value);
-    let futureValue = amount * Math.pow(1 + rate, years);
-    document.getElementById("lumpSumResult").innerText = `Future Value: ₹${futureValue.toFixed(2)}`;
+    const amount = document.getElementById("lumpSumAmount").value;
+    const rate = document.getElementById("lumpSumRate").value;
+    const years = document.getElementById("lumpSumYears").value;
+  
+    if (amount && rate && years) {
+      const futureValue = amount * Math.pow(1 + rate / 100, years);
+      document.getElementById("lumpSumResult").innerText = `Future Value: ₹${futureValue.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // EMI Calculator
   function calculateEMI() {
-    let loanAmount = parseFloat(document.getElementById("loanAmount").value);
-    let rate = parseFloat(document.getElementById("loanInterest").value) / 100 / 12;
-    let months = parseInt(document.getElementById("loanDuration").value);
-    let emi = loanAmount * rate * Math.pow(1 + rate, months) / (Math.pow(1 + rate, months) - 1);
-    document.getElementById("emiResult").innerText = `EMI: ₹${emi.toFixed(2)}`;
+    const loanAmount = document.getElementById("loanAmount").value;
+    const loanInterest = document.getElementById("loanInterest").value;
+    const loanDuration = document.getElementById("loanDuration").value;
+  
+    if (loanAmount && loanInterest && loanDuration) {
+      const emi = loanAmount * loanInterest / 1200 / (1 - Math.pow(1 + loanInterest / 1200, -loanDuration));
+      document.getElementById("emiResult").innerText = `EMI: ₹${emi.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
   // XIRR Calculator
   function calculateXIRR() {
-    // Placeholder for XIRR calculation (requires more complex logic)
-    document.getElementById("xirrResult").innerText = `XIRR: Functionality to be added.`;
+    alert("XIRR calculation requires an external library. This feature is advanced.");
   }
   
   // SWP Calculator
   function calculateSWP() {
-    let amount = parseFloat(document.getElementById("swpAmount").value);
-    let rate = parseFloat(document.getElementById("swpRate").value) / 100 / 12;
-    let duration = parseInt(document.getElementById("swpDuration").value);
-    let monthlyWithdrawal = (amount * rate) / (1 - Math.pow(1 + rate, -duration));
-    document.getElementById("swpResult").innerText = `Monthly SWP: ₹${monthlyWithdrawal.toFixed(2)}`;
+    const swpAmount = document.getElementById("swpAmount").value;
+    const swpRate = document.getElementById("swpRate").value;
+    const swpDuration = document.getElementById("swpDuration").value;
+  
+    if (swpAmount && swpRate && swpDuration) {
+      const monthlyWithdrawal = (swpAmount * (swpRate / 100)) / 12;
+      document.getElementById("swpResult").innerText = `Monthly Withdrawal: ₹${monthlyWithdrawal.toFixed(2)}`;
+    } else {
+      alert("Please fill all the fields");
+    }
   }
   
