@@ -3,51 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Calculators</title>
+    <title>Colorful SIP Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Financial Calculators</h1>
-    </header>
-    <nav>
-        <a href="#inflation">Inflation Calculator</a>
-        <a href="#sip">SIP Calculator</a>
-        <a href="#compound">Compound Interest Calculator</a>
-    </nav>
     <div class="container">
-        <div id="inflation" class="calculator">
-            <h2>Inflation Calculator</h2>
-            <label for="initialAmount">Initial Amount:</label>
-            <input type="number" id="initialAmount" placeholder="Enter initial amount">
-            <label for="rateOfInflation">Rate of Inflation (%):</label>
-            <input type="number" id="rateOfInflation" placeholder="Enter inflation rate">
-            <label for="years">Years:</label>
-            <input type="number" id="years" placeholder="Enter number of years">
-            <button onclick="calculateInflation()">Calculate</button>
-            <p id="inflationResult"></p>
-        </div>
-        <div id="sip" class="calculator">
-            <h2>SIP Calculator</h2>
-            <label for="monthlyInvestment">Monthly Investment:</label>
+        <h1>SIP Calculator</h1>
+        <div class="calculator">
+            <label for="monthlyInvestment">Monthly Investment (₹):</label>
             <input type="number" id="monthlyInvestment" placeholder="Enter monthly investment">
-            <label for="sipRateOfReturn">Rate of Return (%):</label>
-            <input type="number" id="sipRateOfReturn" placeholder="Enter rate of return">
-            <label for="sipYears">Years:</label>
-            <input type="number" id="sipYears" placeholder="Enter number of years">
+            
+            <label for="rateOfReturn">Expected Rate of Return (%):</label>
+            <input type="number" id="rateOfReturn" placeholder="Enter rate of return">
+            
+            <label for="years">Investment Duration (Years):</label>
+            <input type="number" id="years" placeholder="Enter duration in years">
+            
             <button onclick="calculateSIP()">Calculate</button>
-            <p id="sipResult"></p>
-        </div>
-        <div id="compound" class="calculator">
-            <h2>Compound Interest Calculator</h2>
-            <label for="principal">Principal Amount:</label>
-            <input type="number" id="principal" placeholder="Enter principal amount">
-            <label for="compoundRateOfInterest">Rate of Interest (%):</label>
-            <input type="number" id="compoundRateOfInterest" placeholder="Enter rate of interest">
-            <label for="compoundYears">Years:</label>
-            <input type="number" id="compoundYears" placeholder="Enter number of years">
-            <button onclick="calculateCompoundInterest()">Calculate</button>
-            <p id="compoundResult"></p>
+            <p id="result"></p>
         </div>
     </div>
     <script src="script.js"></script>
