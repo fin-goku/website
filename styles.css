@@ -1,51 +1,51 @@
-/* Body Styling */
+/* General Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #f8b5d0, #a5d8ff);
     color: #333;
-  }
-  
-  h1 {
     text-align: center;
-    font-size: 2.5em;
-    padding: 30px;
-    background-color: #4CAF50;
-    color: white;
-    margin: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
   }
   
-  /* Calculator Container Styling */
+  /* Header Styling */
+  h1 {
+    font-size: 3em;
+    color: white;
+    background-color: #4CAF50;
+    padding: 20px;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Calculator Container */
   .calculator-container {
-    background-color: #ffffff;
+    background-color: white;
     margin: 20px auto;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     width: 80%;
-    max-width: 600px;
+    max-width: 500px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    background: #f9f9f9;
+    background: #ffffff;
     border-left: 5px solid #4CAF50;
   }
   
-  /* Header for Each Calculator */
+  /* Calculator Header */
   h2 {
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: #4CAF50;
-    border-bottom: 2px solid #4CAF50;
-    padding-bottom: 10px;
     margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4CAF50;
   }
   
-  /* Labels Styling */
+  /* Label Styling */
   label {
     font-size: 1em;
     color: #333;
-    margin: 5px 0;
-    display: inline-block;
+    margin: 10px 0;
+    display: block;
   }
   
   /* Input Fields */
@@ -94,40 +94,20 @@ body {
     font-weight: bold;
   }
   
-  .calculator-container {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  /* Responsive Styling */
+  /* Responsive Design */
   @media (max-width: 768px) {
     .calculator-container {
       width: 90%;
     }
+  }
   
+  @media (max-width: 480px) {
     h1 {
       font-size: 2em;
     }
   
     h2 {
       font-size: 1.5em;
-    }
-  
-    input,
-    button {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 1.8em;
-    }
-  
-    h2 {
-      font-size: 1.3em;
     }
   }
   
