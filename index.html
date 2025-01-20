@@ -1,55 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Calculators</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Calculators</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Financial Calculators</h1>
-    </header>
-    <nav>
-        <a href="#inflation">Inflation Calculator</a>
-        <a href="#sip">SIP Calculator</a>
-        <a href="#compound">Compound Interest Calculator</a>
-    </nav>
-    <div class="container">
-        <div id="inflation" class="calculator">
-            <h2>Inflation Calculator</h2>
-            <label for="initialAmount">Initial Amount:</label>
-            <input type="number" id="initialAmount" placeholder="Enter initial amount">
-            <label for="rateOfInflation">Rate of Inflation (%):</label>
-            <input type="number" id="rateOfInflation" placeholder="Enter inflation rate">
-            <label for="years">Years:</label>
-            <input type="number" id="years" placeholder="Enter number of years">
-            <button onclick="calculateInflation()">Calculate</button>
-            <p id="inflationResult"></p>
-        </div>
-        <div id="sip" class="calculator">
-            <h2>SIP Calculator</h2>
-            <label for="monthlyInvestment">Monthly Investment:</label>
-            <input type="number" id="monthlyInvestment" placeholder="Enter monthly investment">
-            <label for="sipRateOfReturn">Rate of Return (%):</label>
-            <input type="number" id="sipRateOfReturn" placeholder="Enter rate of return">
-            <label for="sipYears">Years:</label>
-            <input type="number" id="sipYears" placeholder="Enter number of years">
-            <button onclick="calculateSIP()">Calculate</button>
-            <p id="sipResult"></p>
-        </div>
-        <div id="compound" class="calculator">
-            <h2>Compound Interest Calculator</h2>
-            <label for="principal">Principal Amount:</label>
-            <input type="number" id="principal" placeholder="Enter principal amount">
-            <label for="compoundRateOfInterest">Rate of Interest (%):</label>
-            <input type="number" id="compoundRateOfInterest" placeholder="Enter rate of interest">
-            <label for="compoundYears">Years:</label>
-            <input type="number" id="compoundYears" placeholder="Enter number of years">
-            <button onclick="calculateCompoundInterest()">Calculate</button>
-            <p id="compoundResult"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+
+  <h1>Financial Calculators</h1>
+
+  <!-- SIP Calculator -->
+  <div class="calculator-container">
+    <h2>SIP Calculator</h2>
+    <label for="sipAmount">SIP Amount:</label>
+    <input type="number" id="sipAmount" placeholder="Enter SIP Amount">
+    <br>
+    <label for="rateOfReturn">Rate of Return (in %):</label>
+    <input type="number" id="rateOfReturn" placeholder="Enter Rate of Return">
+    <br>
+    <label for="duration">Duration (in years):</label>
+    <input type="number" id="duration" placeholder="Enter Duration">
+    <br>
+    <button onclick="calculateSIP()">Calculate SIP</button>
+    <p id="sipResult"></p>
+  </div>
+
+  <!-- Inflation Calculator -->
+  <div class="calculator-container">
+    <h2>Inflation Calculator</h2>
+    <label for="initialAmount">Initial Amount:</label>
+    <input type="number" id="initialAmount" placeholder="Enter Initial Amount">
+    <br>
+    <label for="inflationRate">Inflation Rate (in %):</label>
+    <input type="number" id="inflationRate" placeholder="Enter Inflation Rate">
+    <br>
+    <label for="yearsInflation">Number of Years:</label>
+    <input type="number" id="yearsInflation" placeholder="Enter Years">
+    <br>
+    <button onclick="calculateInflation()">Calculate Inflation Impact</button>
+    <p id="inflationResult"></p>
+  </div>
+
+  <!-- Compound Interest Calculator -->
+  <div class="calculator-container">
+    <h2>Compound Interest Calculator</h2>
+    <label for="principalAmount">Principal Amount:</label>
+    <input type="number" id="principalAmount" placeholder="Enter Principal Amount">
+    <br>
+    <label for="interestRate">Annual Interest Rate (in %):</label>
+    <input type="number" id="interestRate" placeholder="Enter Interest Rate">
+    <br>
+    <label for="timePeriod">Time Period (in years):</label>
+    <input type="number" id="timePeriod" placeholder="Enter Time Period">
+    <br>
+    <button onclick="calculateCompoundInterest()">Calculate Compound Interest</button>
+    <p id="compoundInterestResult"></p>
+  </div>
+
+  <!-- CAGR Calculator -->
+  <div class="calculator-container">
+    <h2>CAGR Calculator</h2>
+    <label for="initialInvestment">Initial Investment:</label>
+    <input type="number" id="initialInvestment" placeholder="Enter Initial Investment">
+    <br>
+    <label for="finalValue">Final Value:</label>
+    <input type="number" id="finalValue" placeholder="Enter Final Value">
+    <br>
+    <label for="yearsCAGR">Number of Years:</label>
+    <input type="number" id="yearsCAGR" placeholder="Enter Years">
+    <br>
+    <button onclick="calculateCAGR()">Calculate CAGR</button>
+    <p id="cagrResult"></p>
+  </div>
+
+  <!-- Lump Sum Calculator -->
+  <div class="calculator-container">
+    <h2>Lump Sum Calculator</h2>
+    <label for="lumpSumAmount">Lump Sum Amount:</label>
+    <input type="number" id="lumpSumAmount" placeholder="Enter Lump Sum Amount">
+    <br>
+    <label for="lumpSumRate">Annual Rate of Return (in %):</label>
+    <input type="number" id="lumpSumRate" placeholder="Enter Rate of Return">
+    <br>
+    <label for="lumpSumYears">Duration (in years):</label>
+    <input type="number" id="lumpSumYears" placeholder="Enter Duration">
+    <br>
+    <button onclick="calculateLumpSum()">Calculate Lump Sum Growth</button>
+    <p id="lumpSumResult"></p>
+  </div>
+
+  <!-- EMI Calculator -->
+  <div class="calculator-container">
+    <h2>EMI Calculator</h2>
+    <label for="loanAmount">Loan Amount:</label>
+    <input type="number" id="loanAmount" placeholder="Enter Loan Amount">
+    <br>
+    <label for="loanRate">Annual Interest Rate (in %):</label>
+    <input type="number" id="loanRate" placeholder="Enter Interest Rate">
+    <br>
+    <label for="loanTerm">Loan Term (in years):</label>
+    <input type="number" id="loanTerm" placeholder="Enter Loan Term">
+    <br>
+    <button onclick="calculateEMI()">Calculate EMI</button>
+    <p id="emiResult"></p>
+  </div>
+
+  <!-- XIRR Calculator -->
+  <div class="calculator-container">
+    <h2>XIRR Calculator</h2>
+    <label for="xirrValues">Investment Values (comma separated):</label>
+    <input type="text" id="xirrValues" placeholder="Enter Investment Values">
+    <br>
+    <label for="xirrDates">Investment Dates (comma separated):</label>
+    <input type="text" id="xirrDates" placeholder="Enter Investment Dates">
+    <br>
+    <button onclick="calculateXIRR()">Calculate XIRR</button>
+    <p id="xirrResult"></p>
+  </div>
+
+  <!-- SWP Calculator -->
+  <div class="calculator-container">
+    <h2>SWP Calculator</h2>
+    <label for="swpAmount">Investment Amount:</label>
+    <input type="number" id="swpAmount" placeholder="Enter Investment Amount">
+    <br>
+    <label for="swpRate">Annual Withdrawal Rate (in %):</label>
+    <input type="number" id="swpRate" placeholder="Enter Withdrawal Rate">
+    <br>
+    <label for="swpYears">Duration (in years):</label>
+    <input type="number" id="swpYears" placeholder="Enter Duration">
+    <br>
+    <button onclick="calculateSWP()">Calculate SWP</button>
+    <p id="swpResult"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
