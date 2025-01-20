@@ -12,7 +12,7 @@ function calculateSIP() {
     const years = document.getElementById('sipYears').value;
     const months = years * 12;
     const futureValue = monthlyInvestment * ((Math.pow((1 + rateOfReturn), months) - 1) / rateOfReturn) * (1 + rateOfReturn);
-    document.getElementById('sipResult').textContent = `Future value: $${futureValue.toFixed(2)}`;
+    document.getElementById('sipResult').textContent = `Future value: $Rs.{futureValue.toFixed(2)}`;
 }
 
 function calculateCompoundInterest() {
